@@ -1,49 +1,48 @@
-let expenses = [];
+let expenses=[];
 
-function addExpense() {
+function addExpense(){
+    let name=document.getElementById("expense-name").value;
+    let amount=document.getElementById("expense-amount").value;
+    let category=document.getElementById("expense-category").value;
+    let date=document.getElementById("expense-date").value;
 
-    let name = document.getElementById("expense-name").value;
-    let amount = document.getElementById("expense-amount").value;
-    let category = document.getElementById("expense-category").value;
-    let date = document.getElementById("expense-date").value;
-
-    // Validation
-    if (name === "" || amount === "" || category === "" || date === "") {
-        alert("Please fill in all fields.");
-        return;
-    }
-
-    // Create expense object
-    let expense = {
-        name: name,
-        amount: amount,
-        category: category,
-        date: date
-    };
-
-    // Add to array
-    expenses.push(expense);
-
-    // Show expenses
-    displayExpenses();
-
-    // Clear inputs
-    document.getElementById("expense-name").value = "";
-    document.getElementById("expense-amount").value = "";
-    document.getElementById("expense-category").selectedIndex = 0;
-    document.getElementById("expense-date").value = "";
+//validation
+if( name==""|| amount==""|| category==""|| date==""){
+    alert("Please fill in all the fields.");
+    return;
 }
 
-// Display all expenses
-function displayExpenses() {
+//create expense object
+let expense={
+    name:name,
+    amount:amount,
+    category:category,
+    date:date
+};
 
-    let expenseList = document.getElementById("expense-list");
+//add  to array
+expenses.push(expense);
 
-    expenseList.innerHTML = "";
+//show expenses
+displayExpenses();
 
-    for (let i = 0; i < expenses.length; i++) {
+//clear inputs
+document.getElementById("expense-name").value="";
+document.getElementById("expense-amount").value="";
+document.getElementById("expense-category").selectedIndex=0;
+document.getElementById("expense-date").value="";
+}
 
-        let row = `
+//dispplay expenses
+function displayExpenses(){
+
+    let expenseList=document.getElementById("expense-list");
+
+expenseList.innerHTML="";
+
+  for(let i=0;i<expenses.length;i++){
+
+      let row = `
         <tr>
             <td>${expenses[i].name}</td>
             <td>Rs. ${expenses[i].amount}</td>
@@ -56,14 +55,13 @@ function displayExpenses() {
         `;
 
         expenseList.innerHTML += row;
-    }
+}
 }
 
-// Delete expense
-function deleteExpense(index) {
+//delete expenses
+function deleteExpenses(index){
 
-    expenses.splice(index, 1);
+    expenses.splice(index,1);
 
     displayExpenses();
 }
-
