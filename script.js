@@ -78,14 +78,75 @@ expenseList.innerHTML="";
 }
 }
 
-//delete expenses
-function deleteExpense(index){
+// delete expenses changed
+document.getElementById("confirm-delete").onclick = function(){
 
-    expenses.splice(index,1);
+    expenses.splice(deleteIndex,1);
 
- //updating local storage
- localStorage.setItem("expenses",JSON.stringify(expenses));  
-
+    localStorage.setItem("expenses", JSON.stringify(expenses));
 
     displayExpenses();
+
+    closeModal("delete-modal");
+
+};
+// NEW
+function showDeleteModal(index){
+
+    deleteIndex = index;
+
+    document.getElementById("delete-modal").style.display = "flex";
+
 }
+
+// NEW
+function closeModal(modalId){
+
+    document.getElementById(modalId).style.display = "none";
+
+}
+
+// NEW
+function openEditModal(index){
+
+    editIndex = index;
+
+    document.getElementById("edit-expense-name").value =
+    expenses[index].name;
+
+    document.getElementById("edit-expense-amount").value =
+    expenses[index].amount;
+
+    document.getElementById("edit-expense-category").value =
+    expenses[index].category;
+
+    document.getElementById("edit-expense-date").value =
+    expenses[index].date;
+
+    document.getElementById("edit-modal").style.display = "flex";
+
+}
+
+// NEW
+document.getElementById("confirm-edit").onclick = function(){
+
+    expenses[editIndex].name =
+    document.getElementById("edit-expense-name").value;
+
+    expenses[editIndex].amount =
+    document.getElementById("edit-expense-amount").value;
+
+    expenses[editIndex].category =
+    document.getElementById("edit-expense-category").value;
+
+    expenses[editIndex].date =
+    document.getElementById("edit-expense-date").value;
+
+    localStorage.setItem("expenses", JSON.stringify(expenses));
+
+    displayExpenses();
+
+    closeModal("edit-modal");
+
+};
+
