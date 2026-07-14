@@ -11,13 +11,18 @@ if( name==""|| amount==""|| category==""|| date==""){
     alert("Please fill in all the fields.");
     return;
 }
-
+    
+if (amount <= 0) {
+    alert("Enter a valid amount.");
+    return;
+}
+    
 //create expense object
 let expense={
-    name:name,
-    amount:amount,
-    category:category,
-    date:date
+    name,
+    amount,
+    category,
+    date
 };
 
 //add  to array
@@ -59,7 +64,7 @@ expenseList.innerHTML="";
 }
 
 //delete expenses
-function deleteExpenses(index){
+function deleteExpense(index){
 
     expenses.splice(index,1);
 
