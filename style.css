@@ -158,3 +158,13 @@ canvas{
     color: white;
     border: none;
 }
+
+.modal-content button{
+    width:48%;
+}
+
+.modal-buttons{
+    display:flex;
+    justify-content:space-between;
+    margin-top:15px;
+}
