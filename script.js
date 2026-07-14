@@ -1,6 +1,9 @@
 //get saved expenses from local storage
 let expenses=JSON.parse(localStorage.getItem("expenses"))||[];
 
+let editIndex = -1;
+let deleteIndex = -1;
+
 //display saved expenses when page loads
 window.onload=function(){
     displayExpenses();
@@ -63,7 +66,10 @@ expenseList.innerHTML="";
             <td>${expenses[i].category}</td>
             <td>${expenses[i].date}</td>
             <td>
-                <button onclick="deleteExpense(${i})">Delete</button>
+                <td>
+                    <button onclick="openEditModal(${i})">Edit</button>
+                   <button onclick="showDeleteModal(${i})">Delete</button>
+                </td>
             </td>
         </tr>
         `;
