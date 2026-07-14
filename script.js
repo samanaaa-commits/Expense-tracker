@@ -1,4 +1,10 @@
-let expenses=[];
+//get saved expenses from local storage
+let expenses=JSON.parse(localStorage.getItem("expenses"))||[];
+
+//display saved expenses when page loads
+window.onload=function(){
+    displayExpenses();
+}
 
 function addExpense(){
     let name=document.getElementById("expense-name").value;
@@ -27,6 +33,9 @@ let expense={
 
 //add  to array
 expenses.push(expense);
+
+//saved updated array to local storage
+  localstorage.setItem("expenses",JSON.stringify(expenses));  
 
 //show expenses
 displayExpenses();
@@ -67,6 +76,10 @@ expenseList.innerHTML="";
 function deleteExpense(index){
 
     expenses.splice(index,1);
+
+ //updating local storage
+ localstorage.setItem("expenses",JSON.stringify(expenses));  
+
 
     displayExpenses();
 }
