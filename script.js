@@ -186,7 +186,7 @@ function updateChart(){
             datasets:[{
                 label:"Monthly Expenses (Rs.)",
                 data:monthlyTotals,
-                backgroundColor:"#2563EB",
+                backgroundColor:"#041847",
                 borderRadius:8
             }]
         },
