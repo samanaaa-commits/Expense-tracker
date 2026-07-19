@@ -148,3 +148,56 @@ document.getElementById("confirm-edit").onclick = function(){
 
 };
 
+function updateChart(){
+
+    // Total expenses for each month
+    let monthlyTotals = [0,0,0,0,0,0,0,0,0,0,0,0];
+
+    expenses.forEach(expense => {
+
+        let month = new Date(expense.date).getMonth();
+
+        monthlyTotals[month] += Number(expense.amount);
+
+    });
+
+    let ctx = document.getElementById("expenseChart").getContext("2d");
+
+    // Destroy old chart before creating a new one
+    if(expenseChart){
+        expenseChart.destroy();
+    }
+
+    expenseChart = new Chart(ctx,{
+        type:"bar",
+
+        data:{
+            labels:[
+                "Jan","Feb","Mar","Apr","May","Jun",
+                "Jul","Aug","Sep","Oct","Nov","Dec"
+            ],
+
+            datasets:[{
+                label:"Monthly Expenses (Rs.)",
+                data:monthlyTotals,
+                backgroundColor:"#2563EB",
+                borderRadius:8
+            }]
+        },
+
+        options:{
+            responsive:true,
+
+            scales:{
+                y:{
+                    beginAtZero:true
+                }
+            }
+        }
+
+    });
+
+}
+
+
+
