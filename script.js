@@ -4,9 +4,12 @@ let expenses=JSON.parse(localStorage.getItem("expenses"))||[];
 let editIndex = -1;
 let deleteIndex = -1;
 
+let expenseChart;
+
 //display saved expenses when page loads
 window.onload=function(){
     displayExpenses();
+    updateChart();
 };
 
 function addExpense(){
@@ -42,6 +45,7 @@ expenses.push(expense);
 
 //show expenses
 displayExpenses();
+    updateChart();
 
 //clear inputs
 document.getElementById("expense-name").value="";
@@ -84,6 +88,7 @@ document.getElementById("confirm-delete").onclick = function(){
     localStorage.setItem("expenses", JSON.stringify(expenses));
 
     displayExpenses();
+    updateChart();
 
     closeModal("delete-modal");
 
@@ -143,6 +148,7 @@ document.getElementById("confirm-edit").onclick = function(){
     localStorage.setItem("expenses", JSON.stringify(expenses));
 
     displayExpenses();
+    updateChart();
 
     closeModal("edit-modal");
 
