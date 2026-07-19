@@ -1,170 +1,302 @@
 *{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
 body{
-    font-family: Arial, Helvetica, sans-serif;
-    background-color: #f4f4f4;
-    padding: 30px;
+    font-family:Arial, Helvetica, sans-serif;
+    background:#041847;
+    padding:30px;
+    color:#333;
 }
 
+/* Main Container */
+
 .container{
-    width: 80%;
-    max-width: 900px;
-    margin: auto;
-    background: white;
-    padding: 20px;
-    border-radius: 8px;
+    width:90%;
+    max-width:950px;
+    margin:auto;
+    background:#fff;
+    padding:25px;
+    border-radius:12px;
+    box-shadow:0 8px 25px rgba(0,0,0,.08);
 }
 
 h1{
-    text-align: center;
-    margin-bottom: 20px;
+    text-align:center;
+    margin-bottom:25px;
+    color:#073e79;
 }
 
+/* Form */
+
 .form{
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin-bottom: 20px;
+    display:flex;
+    flex-wrap:wrap;
+    gap:12px;
+    margin-bottom:20px;
 }
 
 .form input,
 .form select{
-    flex: 1;
-    min-width: 150px;
-    padding: 10px;
+    flex:1;
+    min-width:170px;
+    padding:12px;
+    border:1px solid #dcdcdc;
+    border-radius:8px;
+    outline:none;
+    transition:.3s;
+    font-size:15px;
+}
+
+.form input:focus,
+.form select:focus{
+    border-color:#4a90e2;
+    box-shadow:0 0 6px rgba(74,144,226,.3);
 }
 
 .form button{
-    padding: 10px 20px;
-    cursor: pointer;
+    background:#022042;
+    color:white;
+    border:none;
+    border-radius:8px;
+    padding:12px 22px;
+    cursor:pointer;
+    font-size:15px;
+    transition:.3s;
 }
+
+.form button:hover{
+    background:#357abd;
+    transform:translateY(-2px);
+}
+
+/* Table */
 
 table{
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-}
-
-table,
-th,
-td{
-    border: 1px solid #ccc;
+    width:100%;
+    border-collapse:collapse;
+    margin-top:20px;
 }
 
 th{
-    background-color: #e9e9e9;
+    background:#072446;
+    color:white;
 }
 
 th,
 td{
-    padding: 10px;
-    text-align: center;
+    padding:12px;
+    text-align:center;
+    border:1px solid #e6e6e6;
 }
 
+tbody tr:nth-child(even){
+    background:#fafafa;
+}
+
+tbody tr:hover{
+    background:#eef6ff;
+}
+
+/* Buttons inside table */
+
+td button{
+    padding:8px 14px;
+    border:none;
+    border-radius:6px;
+    cursor:pointer;
+    margin:2px;
+    transition:.3s;
+}
+
+td button:first-child{
+    background:#034111;
+    color:white;
+}
+
+td button:first-child:hover{
+    background:#034712;
+}
+
+td button:last-child{
+    background:#52030b;
+    color:white;
+}
+
+td button:last-child:hover{
+    background:#4b040b;
+}
+
+/* Filter */
+
 .filter-group{
-    width: 80%;
-    max-width: 900px;
-    margin: 20px auto;
+    width:90%;
+    max-width:950px;
+    margin:25px auto;
 }
 
 .filter-group label{
-    display: block;
-    margin-bottom: 5px;
+    font-weight:bold;
+    margin-bottom:8px;
+    display:block;
 }
 
 .filter-group select{
-    width: 200px;
-    padding: 8px;
+    width:220px;
+    padding:10px;
+    border-radius:8px;
+    border:1px solid #ccc;
 }
 
+/* Chart */
+
 .chart-container{
-    width: 80%;
-    max-width: 900px;
-    margin: 30px auto;
-    background: white;
-    padding: 20px;
-    border-radius: 8px;
+    width:90%;
+    max-width:950px;
+    margin:30px auto;
+    background:white;
+    padding:20px;
+    border-radius:12px;
+    box-shadow:0 8px 25px rgba(0,0,0,.08);
 }
 
 .chart-container h2{
-    text-align: center;
-    margin-bottom: 20px;
+    text-align:center;
+    margin-bottom:20px;
+    color:#2c3e50;
 }
 
-canvas{
-    width: 100%;
-    max-height: 400px;
+#expenseChart{
+    width:100% !important;
+    height:400px !important;
 }
 
 /* Modal */
 
 .modal{
-    display: none;
-    justify-content: center;
-    align-items: center;
-    position: fixed;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-
-    background: rgba(0,0,0,0.5);
+    display:none;
+    position:fixed;
+    left:0;
+    top:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,.5);
+    justify-content:center;
+    align-items:center;
+    z-index:1000;
 }
 
 .modal-content{
-    background: white;
-    width: 350px;
-    padding: 20px;
-    border-radius: 8px;
+    width:360px;
+    background:white;
+    padding:25px;
+    border-radius:12px;
+    animation:popup .25s ease;
 }
 
+@keyframes popup{
+
+    from{
+        opacity:0;
+        transform:scale(.8);
+    }
+
+    to{
+        opacity:1;
+        transform:scale(1);
+    }
+
+}
 
 .modal-content h2{
-    margin-bottom: 15px;
-    text-align: center;
+    text-align:center;
+    margin-bottom:20px;
+    color:#2c3e50;
+}
+
+.modal-content p{
+    text-align:center;
+    margin-bottom:15px;
 }
 
 .modal-content input,
 .modal-content select{
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 10px;
-}
-
-.modal-content button{
-    padding: 10px;
-    margin-top: 10px;
-    cursor: pointer;
-}
-
-.confirm-btn{
-    background-color: green;
-    color: white;
-    border: none;
-}
-
-.cancel-btn{
-    background-color: gray;
-    color: white;
-    border: none;
-}
-
-#confirm-delete{
-    background-color: red;
-    color: white;
-    border: none;
-}
-
-.modal-content button{
-    width:48%;
+    width:100%;
+    padding:10px;
+    margin-bottom:12px;
+    border:1px solid #ccc;
+    border-radius:8px;
 }
 
 .modal-buttons{
     display:flex;
     justify-content:space-between;
-    margin-top:15px;
+    gap:10px;
+}
+
+.modal-buttons button{
+    flex:1;
+    padding:10px;
+    border:none;
+    border-radius:8px;
+    color:white;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.confirm-btn{
+    background:#28a745;
+}
+
+.confirm-btn:hover{
+    background:#218838;
+}
+
+.cancel-btn{
+    background:#6c757d;
+}
+
+.cancel-btn:hover{
+    background:#5a6268;
+}
+
+#confirm-delete{
+    background:#790916;
+}
+
+#confirm-delete:hover{
+    background:#79161f;
+}
+
+/* Responsive */
+
+@media(max-width:768px){
+
+    body{
+        padding:15px;
+    }
+
+    .container,
+    .filter-group,
+    .chart-container{
+        width:100%;
+    }
+
+    .form{
+        flex-direction:column;
+    }
+
+    .form input,
+    .form select,
+    .form button{
+        width:100%;
+    }
+
+    table{
+        display:block;
+        overflow-x:auto;
+    }
+
 }
