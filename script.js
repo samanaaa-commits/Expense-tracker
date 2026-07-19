@@ -66,10 +66,8 @@ expenseList.innerHTML="";
             <td>${expenses[i].category}</td>
             <td>${expenses[i].date}</td>
             <td>
-                <td>
                     <button onclick="openEditModal(${i})">Edit</button>
                    <button onclick="showDeleteModal(${i})">Delete</button>
-                </td>
             </td>
         </tr>
         `;
