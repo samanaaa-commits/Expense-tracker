@@ -129,26 +129,6 @@ td button:last-child:hover{
     background:#4b040b;
 }
 
-/* Filter */
-
-.filter-group{
-    width:90%;
-    max-width:950px;
-    margin:25px auto;
-}
-
-.filter-group label{
-    font-weight:bold;
-    margin-bottom:8px;
-    display:block;
-}
-
-.filter-group select{
-    width:220px;
-    padding:10px;
-    border-radius:8px;
-    border:1px solid #ccc;
-}
 
 /* Chart */
 
